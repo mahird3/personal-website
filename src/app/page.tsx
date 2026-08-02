@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BrandIcon, CalendarIcon, MailIcon, ProjectIcon } from "@/components/icons";
+import { ArrowUpRightIcon, BrandIcon, CalendarIcon, MailIcon, ProjectIcon } from "@/components/icons";
 import { SectionLabel, SiteShell } from "@/components/site-shell";
 import { projects, site, socials, techStack } from "@/data/site";
 
@@ -95,9 +95,15 @@ export default function Home() {
           Personal projects and experiments:
         </p>
         <ul className="grid gap-3 sm:grid-cols-1">
-          {projects.map((project, index) => (
-            <li key={`${project.name}-${index}`}>
-              <div className="rounded-xl border border-dashed border-border bg-pill/60 p-4">
+          {projects.map((project, index) => {
+            const card = (
+              <div
+                className={`h-full rounded-xl border bg-pill/60 p-4 ${
+                  project.href
+                    ? "border-border transition hover:border-neutral-300 hover:bg-pill"
+                    : "border-dashed border-border"
+                }`}
+              >
                 <div className="mb-2 flex items-start justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <span className="flex size-7 items-center justify-center rounded-md border border-border bg-white text-neutral-700">
@@ -116,9 +122,32 @@ export default function Home() {
                 <p className="text-[12.5px] leading-relaxed text-neutral-600">
                   {project.description}
                 </p>
+                {project.href && (
+                  <span className="mt-3 inline-flex items-center gap-1 text-[12px] font-medium text-accent">
+                    {project.href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                    <ArrowUpRightIcon className="size-3" />
+                  </span>
+                )}
               </div>
-            </li>
-          ))}
+            );
+
+            return (
+              <li key={`${project.name}-${index}`}>
+                {project.href ? (
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  card
+                )}
+              </li>
+            );
+          })}
         </ul>
       </section>
 

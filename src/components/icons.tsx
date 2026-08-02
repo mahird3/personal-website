@@ -107,6 +107,14 @@ export function ProjectIcon({
           <path d="M4 19h16M7 16V9M12 16V5M17 16v-4" />
         </svg>
       );
+    case "tomb":
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M7 20V10a5 5 0 0 1 10 0v10" />
+          <path d="M4 20h16" />
+          <path d="M10 11h4M10 14h4" />
+        </svg>
+      );
     case "layers":
       return (
         <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
@@ -120,6 +128,14 @@ export function ProjectIcon({
         </svg>
       );
   }
+}
+
+export function ArrowUpRightIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M7 17L17 7M8 7h9v9" />
+    </svg>
+  );
 }
 
 export function MailIcon({ className }: { className?: string }) {

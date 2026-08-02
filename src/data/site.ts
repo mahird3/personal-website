@@ -68,11 +68,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: "Coming soon",
+    name: "Père Lachaise Online",
     description:
-      "Personal projects are under construction. This section will be updated soon.",
-    status: "Under construction",
-    icon: "layers",
+      "A visit planner for Père Lachaise cemetery in Paris, built around AI-assisted search: ask in plain language, like \"the singer who recorded Milord\", \"mathematicians who lived through the Belle Époque\", or \"Polish composers\", and get the matching graves, no exact name needed. Add them to an itinerary and the app orders them into an efficient walking route on an interactive map. Maps 293 graves to exact locations and indicates divisions for roughly 7,000 more, combining the APPL notable-graves database with OpenStreetMap, Wikipedia, and Wikidata.",
+    status: "Active",
+    icon: "tomb",
+    href: "https://www.perelachaise.online/",
   },
 ];
 

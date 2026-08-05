@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const jetbrains = JetBrains_Mono({
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className={`${jetbrains.variable} h-full`}>
       <body className="min-h-full bg-background font-mono text-foreground antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );

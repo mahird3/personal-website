@@ -51,6 +51,11 @@ export default function ResumePage() {
                   {job.location ? <p>{job.location}</p> : null}
                 </div>
               </div>
+              {job.summary ? (
+                <p className="mb-3 text-[13px] leading-relaxed text-neutral-800">
+                  {job.summary}
+                </p>
+              ) : null}
               <ul className="space-y-2 text-[13px] leading-relaxed text-neutral-700">
                 {job.bullets.map((bullet) => (
                   <li key={bullet} className="flex gap-2">

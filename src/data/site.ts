@@ -51,6 +51,10 @@ export const techStack: TechItem[] = [
   { name: "Kubernetes", icon: "kubernetes" },
   { name: "AWS", icon: "aws" },
   { name: "Airflow", icon: "airflow" },
+  { name: "OpenTelemetry", icon: "opentelemetry" },
+  { name: "Grafana", icon: "grafana" },
+  { name: "GitHub Actions", icon: "githubactions" },
+  { name: "Jenkins", icon: "jenkins" },
   { name: "Git", icon: "git" },
 ];
 
@@ -83,7 +87,11 @@ export type Experience = {
   period: string;
   location?: string;
   logo: string;
+  /** One-paragraph context: what the company/assignment was and the headline outcome. */
+  summary?: string;
   bullets: string[];
+  /** Key skills for this role, shown as chips under the bullets. */
+  skills?: string[];
 };
 
 export const experiences: Experience[] = [
@@ -93,24 +101,30 @@ export const experiences: Experience[] = [
     period: "Apr. 2026 – Oct. 2026",
     location: "Paris, France",
     logo: "/companies/mindlapse.png",
+    summary: "Startup building an AI-augmented cyber governance platform.",
     bullets: [
-      "Built 10+ AI features across nine Python/FastAPI microservices (LangGraph, LangChain, LiteLLM, Docker), including RAG pipelines that automate compliance work analysts used to do by hand: drafting risk scenarios, recommending risk treatments, generating executive summaries, and extracting questions from security questionnaires.",
-      "Made every AI answer cite the NIST CSF, NIS2 or ENISA control it came from, using Milvus vector search and schema validation to stop the model inventing controls that don't exist.",
-      "Improved AI-assessed security maturity accuracy from ~40% to ~90% across 135 NIST controls. Built an evaluation harness to measure quality first, then tuned retrieval and prompts against it. The results feed a deterministic scoring engine, so final scores stay auditable.",
-      "Kept the AI services reliable in production with automatic retries on model failures, typed API contracts, prompt-injection checks, and async webhook delivery so slow LLM calls never block the app (FastAPI, PostgreSQL, APISIX).",
+      "Shipped 10+ AI features across nine Python/FastAPI microservices (LangGraph, LangChain, Docker, Kubernetes, PostgreSQL), used by the compliance teams of large enterprise clients to draft risk scenarios, risk treatments, executive summaries and security questionnaires that consultants used to write by hand.",
+      "Built LLM agents and RAG pipelines that read a client's full document set and assess its security maturity against NIST CSF and NIS2: Airflow document processing, hybrid search over a Milvus vector index, a citation to the supporting passage on every answer, and a deterministic scoring engine downstream so final scores stay auditable.",
+      "Raised the AI risk score's agreement with expert assessments from ~40% to ~90% across 135 NIST controls: scoped correctness criteria with the founder and cyber experts, built an evaluation harness, then tuned retrieval and prompts against it.",
+      "Fine-tuned the embedding model with LoRA (Hugging Face PEFT) on a question-to-passage reference set built with domain experts, lifting retrieval recall from ~70% to ~90%.",
+      "Built the LiteLLM gateway behind every model call: automatic fallback to a backup model when a provider goes down, spend caps, and models served from AWS Bedrock or self-hosted on GPU with vLLM.",
+      "Kept the services reliable in production: typed API contracts, prompt-injection checks, async webhook delivery via APISIX so slow LLM calls never block the app, OpenTelemetry traces and metrics in Grafana, and GitHub Actions regression tests on model answers for every release.",
     ],
+    skills: ["LangGraph", "RAG", "FastAPI", "Kubernetes", "LLM Evaluation"],
   },
   {
-    company: "Société Générale via Alenia Consulting",
+    company: "Société Générale (via Alenia Consulting)",
     role: "Data Scientist / AI Consultant Intern",
     period: "Apr. 2024 – Oct. 2024",
     location: "Paris, France",
     logo: "/companies/sg.png",
+    summary: "Consulting assignment at the client, scoped directly with its developers.",
     bullets: [
-      "Architected an intelligent AI coding agent (LangGraph, Python) that uses RAG to dynamically query technical documentation and automate complex DevOps and data engineering workflows.",
-      "Automated multi-cloud CI/CD pipeline generation (Jenkins, Docker, Kubernetes), accelerating deployment configuration turnaround from hours down to ~3 minutes.",
-      "Elevated generated-code accuracy from 55% to 90% by building systematic evaluation frameworks and refining prompt engineering prior to production rollout.",
+      "Built an AI coding agent (Python, LangGraph) that uses RAG over internal documentation and 300 code repositories to follow the team's conventions. Adopted by ~10 developers.",
+      "Automated multi-cloud CI/CD and deployment configuration: the agent generates Jenkins pipelines, Dockerfiles and Kubernetes manifests and shows them to the developer for approval before writing anything, cutting new-service setup from several hours to ~3 minutes.",
+      "Reached a 90% field-by-field match against hand-written files (vs 55% for the same LLM without the agent) by building a held-out evaluation set from test projects excluded from tuning and iterating the prompts against it.",
     ],
+    skills: ["LangGraph", "RAG", "CI/CD", "Jenkins", "Python"],
   },
   {
     company: "EY (Ernst & Young)",
@@ -123,6 +137,7 @@ export const experiences: Experience[] = [
       "Utilized Python for basic statistical analysis and NLP semantic filtering to help identify potential anomalies in financial transactions.",
       "Supported senior analysts with data preparation, audit checks, and quantitative reporting for ongoing forensic investigations.",
     ],
+    skills: ["SQL", "Python", "NLP", "Data Cleaning"],
   },
   {
     company: "Yapı Kredi",
@@ -135,6 +150,7 @@ export const experiences: Experience[] = [
       "Supported the migration of legacy risk workflows from SAS to Python, helping improve code maintainability and execution speed.",
       "Contributed to data preparation, model validation checks, and routine reporting alongside the senior risk modeling team.",
     ],
+    skills: ["Credit Risk Modeling", "XGBoost", "Logistic Regression", "Python"],
   },
 ];
 

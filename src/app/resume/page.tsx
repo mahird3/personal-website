@@ -51,6 +51,11 @@ export default function ResumePage() {
                   {job.location ? <p>{job.location}</p> : null}
                 </div>
               </div>
+              {job.summary ? (
+                <p className="mb-3 text-[13px] leading-relaxed text-neutral-800">
+                  {job.summary}
+                </p>
+              ) : null}
               <ul className="space-y-2 text-[13px] leading-relaxed text-neutral-700">
                 {job.bullets.map((bullet) => (
                   <li key={bullet} className="flex gap-2">
@@ -59,6 +64,18 @@ export default function ResumePage() {
                   </li>
                 ))}
               </ul>
+              {job.skills?.length ? (
+                <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Skills">
+                  {job.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-full border border-border bg-pill px-2.5 py-0.5 text-[11.5px] text-neutral-700"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
           ))}
         </ol>

@@ -173,8 +173,8 @@ export const experiences: Experience[] = [
     skills: [
       "Credit Risk Modeling",
       "Probability of Default",
+      "Machine Learning",
       "XGBoost",
-      "Logistic Regression",
       "Python",
       "SAS to Python Migration",
     ],

@@ -110,7 +110,17 @@ export const experiences: Experience[] = [
       "Built the LiteLLM gateway behind every model call: automatic fallback to a backup model when a provider goes down, spend caps, and models served from AWS Bedrock or self-hosted on GPU with vLLM.",
       "Kept the services reliable in production: typed API contracts, prompt-injection checks, async webhook delivery via APISIX so slow LLM calls never block the app, OpenTelemetry traces and metrics in Grafana, and GitHub Actions regression tests on model answers for every release.",
     ],
-    skills: ["LangGraph", "RAG", "FastAPI", "Kubernetes", "LLM Evaluation"],
+    skills: [
+      "LangGraph",
+      "RAG",
+      "LLM Evaluation",
+      "LoRA Fine-tuning",
+      "FastAPI",
+      "Docker",
+      "Kubernetes",
+      "Milvus",
+      "vLLM",
+    ],
   },
   {
     company: "Société Générale (via Alenia Consulting)",
@@ -124,7 +134,17 @@ export const experiences: Experience[] = [
       "Automated multi-cloud CI/CD and deployment configuration: the agent generates Jenkins pipelines, Dockerfiles and Kubernetes manifests and shows them to the developer for approval before writing anything, cutting new-service setup from several hours to ~3 minutes.",
       "Reached a 90% field-by-field match against hand-written files (vs 55% for the same LLM without the agent) by building a held-out evaluation set from test projects excluded from tuning and iterating the prompts against it.",
     ],
-    skills: ["LangGraph", "RAG", "CI/CD", "Jenkins", "Python"],
+    skills: [
+      "LangGraph",
+      "AI Agents",
+      "RAG",
+      "LLM Evaluation",
+      "Python",
+      "CI/CD",
+      "Jenkins",
+      "Docker",
+      "Kubernetes",
+    ],
   },
   {
     company: "EY (Ernst & Young)",
@@ -137,7 +157,7 @@ export const experiences: Experience[] = [
       "Utilized Python for basic statistical analysis and NLP semantic filtering to help identify potential anomalies in financial transactions.",
       "Supported senior analysts with data preparation, audit checks, and quantitative reporting for ongoing forensic investigations.",
     ],
-    skills: ["SQL", "Python", "NLP", "Data Cleaning"],
+    skills: ["SQL", "Python", "NLP", "Forensic Analytics", "ERP Data"],
   },
   {
     company: "Yapı Kredi",
@@ -150,7 +170,14 @@ export const experiences: Experience[] = [
       "Supported the migration of legacy risk workflows from SAS to Python, helping improve code maintainability and execution speed.",
       "Contributed to data preparation, model validation checks, and routine reporting alongside the senior risk modeling team.",
     ],
-    skills: ["Credit Risk Modeling", "XGBoost", "Logistic Regression", "Python"],
+    skills: [
+      "Credit Risk Modeling",
+      "Probability of Default",
+      "XGBoost",
+      "Logistic Regression",
+      "Python",
+      "SAS to Python Migration",
+    ],
   },
 ];
 

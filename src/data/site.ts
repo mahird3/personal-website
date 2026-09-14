@@ -51,6 +51,10 @@ export const techStack: TechItem[] = [
   { name: "Kubernetes", icon: "kubernetes" },
   { name: "AWS", icon: "aws" },
   { name: "Airflow", icon: "airflow" },
+  { name: "OpenTelemetry", icon: "opentelemetry" },
+  { name: "Grafana", icon: "grafana" },
+  { name: "GitHub Actions", icon: "githubactions" },
+  { name: "Jenkins", icon: "jenkins" },
   { name: "Git", icon: "git" },
 ];
 
@@ -86,6 +90,8 @@ export type Experience = {
   /** One-paragraph context: what the company/assignment was and the headline outcome. */
   summary?: string;
   bullets: string[];
+  /** Key skills for this role, shown as chips under the bullets. */
+  skills?: string[];
 };
 
 export const experiences: Experience[] = [
@@ -97,13 +103,14 @@ export const experiences: Experience[] = [
     logo: "/companies/mindlapse.png",
     summary: "Startup building an AI-augmented cyber governance platform.",
     bullets: [
-      "Shipped 10+ AI features across nine Python/FastAPI microservices (LangGraph, LangChain, Docker, Kubernetes, PostgreSQL), used by the compliance teams of large enterprise clients to draft the risk scenarios, risk treatments, executive summaries and security questionnaires consultants used to write by hand.",
+      "Shipped 10+ AI features across nine Python/FastAPI microservices (LangGraph, LangChain, Docker, Kubernetes, PostgreSQL), used by the compliance teams of large enterprise clients to draft risk scenarios, risk treatments, executive summaries and security questionnaires that consultants used to write by hand.",
       "Built LLM agents and RAG pipelines that read a client's full document set and assess its security maturity against NIST CSF and NIS2: Airflow document processing, hybrid search over a Milvus vector index, a citation to the supporting passage on every answer, and a deterministic scoring engine downstream so final scores stay auditable.",
-      "Raised the AI risk score's agreement with the experts' own assessment from ~40% to ~90% across 135 NIST controls: scoped correctness criteria with the founder and cyber experts, built an evaluation harness, then tuned retrieval and prompts against it.",
-      "Fine-tuned the embedding model with LoRA (Hugging Face PEFT) on a question-to-passage reference set built with the domain experts, lifting retrieval recall from ~70% to ~90%.",
-      "Built the LiteLLM gateway that carries every model call: automatic fallback to a backup model when a provider goes down, spend caps, and models served from AWS Bedrock or self-hosted on GPU with vLLM.",
-      "Kept the services reliable in production: typed API contracts, prompt-injection checks, async webhook delivery so slow LLM calls never block the app (APISIX), OpenTelemetry traces and metrics in Grafana, and GitHub Actions regression tests on model answers for every release.",
+      "Raised the AI risk score's agreement with expert assessments from ~40% to ~90% across 135 NIST controls: scoped correctness criteria with the founder and cyber experts, built an evaluation harness, then tuned retrieval and prompts against it.",
+      "Fine-tuned the embedding model with LoRA (Hugging Face PEFT) on a question-to-passage reference set built with domain experts, lifting retrieval recall from ~70% to ~90%.",
+      "Built the LiteLLM gateway behind every model call: automatic fallback to a backup model when a provider goes down, spend caps, and models served from AWS Bedrock or self-hosted on GPU with vLLM.",
+      "Kept the services reliable in production: typed API contracts, prompt-injection checks, async webhook delivery via APISIX so slow LLM calls never block the app, OpenTelemetry traces and metrics in Grafana, and GitHub Actions regression tests on model answers for every release.",
     ],
+    skills: ["LangGraph", "RAG", "FastAPI", "Kubernetes", "LLM Evaluation"],
   },
   {
     company: "Société Générale (via Alenia Consulting)",
@@ -113,10 +120,11 @@ export const experiences: Experience[] = [
     logo: "/companies/sg.png",
     summary: "Consulting assignment at the client, scoped directly with its developers.",
     bullets: [
-      "Built an AI coding agent (Python, LangGraph) that uses RAG over the internal documentation and 300 code repositories to follow the team's conventions; tried by ~10 developers.",
+      "Built an AI coding agent (Python, LangGraph) that uses RAG over internal documentation and 300 code repositories to follow the team's conventions. Adopted by ~10 developers.",
       "Automated multi-cloud CI/CD and deployment configuration: the agent generates Jenkins pipelines, Dockerfiles and Kubernetes manifests and shows them to the developer for approval before writing anything, cutting new-service setup from several hours to ~3 minutes.",
       "Reached a 90% field-by-field match against hand-written files (vs 55% for the same LLM without the agent) by building a held-out evaluation set from test projects excluded from tuning and iterating the prompts against it.",
     ],
+    skills: ["LangGraph", "RAG", "CI/CD", "Jenkins", "Python"],
   },
   {
     company: "EY (Ernst & Young)",
@@ -129,6 +137,7 @@ export const experiences: Experience[] = [
       "Utilized Python for basic statistical analysis and NLP semantic filtering to help identify potential anomalies in financial transactions.",
       "Supported senior analysts with data preparation, audit checks, and quantitative reporting for ongoing forensic investigations.",
     ],
+    skills: ["SQL", "Python", "NLP", "Data Cleaning"],
   },
   {
     company: "Yapı Kredi",
@@ -141,6 +150,7 @@ export const experiences: Experience[] = [
       "Supported the migration of legacy risk workflows from SAS to Python, helping improve code maintainability and execution speed.",
       "Contributed to data preparation, model validation checks, and routine reporting alongside the senior risk modeling team.",
     ],
+    skills: ["Credit Risk Modeling", "XGBoost", "Logistic Regression", "Python"],
   },
 ];
 

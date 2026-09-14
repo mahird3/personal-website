@@ -64,6 +64,18 @@ export default function ResumePage() {
                   </li>
                 ))}
               </ul>
+              {job.skills?.length ? (
+                <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Skills">
+                  {job.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-full border border-border bg-pill px-2.5 py-0.5 text-[11.5px] text-neutral-700"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </li>
           ))}
         </ol>
